@@ -34,7 +34,7 @@ export default function SeasonLayout({
   const mobileView = window.innerWidth <= 768;
 
   return (
-    <div>
+    <>
       <h1>Episode List: </h1>
       <EpisodeListContainer>
         {mobileView && currentSegment ? null : (
@@ -43,6 +43,6 @@ export default function SeasonLayout({
         {children}
         {currentSegment ? <CloseButton seasonUrl={params.season} /> : null}
       </EpisodeListContainer>
-    </div>
+    </>
   );
 }

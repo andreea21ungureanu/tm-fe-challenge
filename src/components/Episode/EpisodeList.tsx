@@ -21,7 +21,7 @@ const StyledEpisodeList = styled.ol`
 
 export const EpisodeList = ({ episodes = [], seasonUrl }: EpisodeList) => {
   return (
-    <StyledEpisodeList>
+    <StyledEpisodeList aria-label={`Season ${seasonUrl} episodes`}>
       {episodes.map((ep) => (
         <EpisodeTitleLink
           key={ep.id}

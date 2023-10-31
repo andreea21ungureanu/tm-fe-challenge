@@ -32,16 +32,18 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
     useGetEpisode(Number(episodeId)) as Episode;
 
   return (
-    <EpisodeDetailContainer>
-      <div>{name}</div>
+    <EpisodeDetailContainer aria-label={"Episode details"} tabIndex={0}>
+      <h2 tabIndex={1}>{name}</h2>
       <ContentAndImageContainer>
         <Image
           alt={`Preview of Episode ${name}`}
           src={image.medium}
           width={200}
-          height={150}
+          height={125}
+          tabIndex={2}
         />
         <ContentDetails
+          aria-label={"More details about the episode"}
           season={season}
           number={number}
           airdate={airdate}
@@ -50,7 +52,10 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
         />
       </ContentAndImageContainer>
       {/** Clean HTML from text? */}
-      <div dangerouslySetInnerHTML={{ __html: summary }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: summary }}
+        aria-label="Episode summary"
+      />
     </EpisodeDetailContainer>
   );
 };

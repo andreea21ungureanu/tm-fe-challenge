@@ -9,8 +9,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <div>
+      <body aria-label="Main content container">
+        <div aria-describedby="Game of Thrones Series Summary">
           <h1>Seasons List:</h1>
           <SeasonList />
           {children}
