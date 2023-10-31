@@ -6,6 +6,7 @@ import { EpisodeTitleLink } from "./EpisodeTitleLink";
 
 export type EpisodeList = {
   episodes: Episode[];
+  seasonUrl: string;
 };
 
 const StyledEpisodeList = styled.ol`
@@ -17,7 +18,7 @@ const StyledEpisodeList = styled.ol`
   padding-inline-start: 0;
 `;
 
-export const EpisodeList = ({ episodes = [] }: EpisodeList) => {
+export const EpisodeList = ({ episodes = [], seasonUrl }: EpisodeList) => {
   return (
     <StyledEpisodeList>
       {episodes.map((ep) => (
@@ -25,6 +26,7 @@ export const EpisodeList = ({ episodes = [] }: EpisodeList) => {
           key={ep.id}
           id={ep.id}
           season={ep.season}
+          seasonUrl={seasonUrl}
           episodeName={ep.name}
           episodeNumber={ep.number}
         />

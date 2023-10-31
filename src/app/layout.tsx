@@ -1,17 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import { EpisodeList } from "../components/EpisodeList";
-import { useGetAllEpisodes } from "../api/useGetAllEpisodes";
-
-const EpisodeListContainer = styled.div`
-  display: flex;
-  max-height: 500px;
-
-  padding: 16px;
-  border: 1px solid black;
-  border-radius: 8px;
-`;
+import { SeasonList } from "@/components/SeasonList";
+import { useGetEpisodesPerSeason } from "@/api/useGetEpisodesPerSeason";
 
 export default function RootLayout({
   children,
@@ -22,11 +13,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div>
-          <h1>Episode List: </h1>
-          <EpisodeListContainer>
-            <EpisodeList episodes={useGetAllEpisodes()} />
-            {children}
-          </EpisodeListContainer>
+          <h1>Seasons List:</h1>
+          <SeasonList />
+          {children}
         </div>
       </body>
     </html>

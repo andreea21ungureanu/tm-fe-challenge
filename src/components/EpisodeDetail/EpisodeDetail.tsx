@@ -7,7 +7,7 @@ import Image from "next/image";
 import { ContentDetails } from "./ContentDetails";
 
 export type EpisodeDetailProps = {
-  id: string;
+  episodeId: string;
 };
 
 const EpisodeDetailContainer = styled.div`
@@ -26,9 +26,11 @@ const ContentAndImageContainer = styled.div`
   align-items: center;
 `;
 
-export const EpisodeDetail = ({ id }: EpisodeDetailProps) => {
+export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
   const { name, image, summary, season, number, airdate, runtime, rating } =
-    useGetEpisode(Number(id)) as Episode;
+    useGetEpisode(Number(episodeId)) as Episode;
+
+  console.log(image.medium);
 
   return (
     <EpisodeDetailContainer>
