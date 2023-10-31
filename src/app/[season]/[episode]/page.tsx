@@ -1,6 +1,6 @@
 "use client";
 
-import { EpisodeDetail } from "../../../components/EpisodeDetail/EpisodeDetail";
+import { EpisodeDetail } from "../../../components/Episode/EpisodeDetail/EpisodeDetail";
 
 export default function EpisodeDetailPage({
   params,

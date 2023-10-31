@@ -1,7 +1,7 @@
 "use client";
 
-import styled from "styled-components";
-import { EpisodeList } from "@/components/EpisodeList";
+import styled, { css } from "styled-components";
+import { EpisodeList } from "@/components/Episode/EpisodeList";
 import { useGetEpisodesPerSeason } from "@/api/useGetEpisodesPerSeason";
 import { CloseButton } from "@/components/Buttons/CloseButton";
 import { useSelectedLayoutSegments } from "next/navigation";
@@ -15,14 +15,25 @@ const EpisodeListContainer = styled.div`
   border-radius: 8px;
 `;
 
+const episodeListMobileStyles = css`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const EpisodeListMobileContainer = styled.div`
+  ${episodeListMobileStyles}
+`;
+
 export default function SeasonLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { season: string; episode: string };
+  params: { season: string };
 }) {
   const segments = useSelectedLayoutSegments();
+  const episodesPerSeason = useGetEpisodesPerSeason(Number(params.season));
 
   // Due to the way in which we define the id for an episode,
   // the segment array will aways have one element
@@ -32,12 +43,11 @@ export default function SeasonLayout({
     <div>
       <h1>Episode List: </h1>
       <EpisodeListContainer>
-        <EpisodeList
-          seasonUrl={params.season}
-          episodes={useGetEpisodesPerSeason(Number(params.season))}
-        />
+        <EpisodeListMobileContainer hideOnMobile={!!currentSegment}>
+          <EpisodeList seasonUrl={params.season} episodes={episodesPerSeason} />
+        </EpisodeListMobileContainer>
         {children}
-        {currentSegment ? <CloseButton seasonUrl={params.season} /> : undefined}
+        {currentSegment ? <CloseButton seasonUrl={params.season} /> : null}
       </EpisodeListContainer>
     </div>
   );

@@ -5,13 +5,24 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledSeasonList = styled.ul`
-  display: flex
+  display: flex;
   flex-direction: column;
   padding-inline-start: 0;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 `;
 
 const StyledLink = styled(Link)`
   margin: 10px;
+
+  @media (max-width: 768px) {
+    flex-basis: calc(25% - 20px); /* 4 elements per row with margins */
+  }
 `;
 
 export const SeasonList = () => {
