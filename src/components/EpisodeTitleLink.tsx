@@ -25,7 +25,7 @@ export const EpisodeTitleLink = ({
 }: EpisodeTitleLinkProps) => {
   return (
     <StyledList>
-      <Link href={`${seasonUrl}/${id}`}>
+      <Link href={`/${seasonUrl}/${id}`}>
         <span>
           S{season}E{episodeNumber}:
         </span>{" "}
