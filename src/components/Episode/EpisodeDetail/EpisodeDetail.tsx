@@ -32,7 +32,7 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
     useGetEpisode(Number(episodeId)) as Episode;
 
   return (
-    <EpisodeDetailContainer aria-label={"Episode details"}>
+    <EpisodeDetailContainer aria-label={"Episode details"} tabIndex={0}>
       <h2>{name}</h2>
       <ContentAndImageContainer>
         <Image
