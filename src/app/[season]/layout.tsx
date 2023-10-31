@@ -31,7 +31,7 @@ export default function SeasonLayout({
 
   // Alternative way for retrieving mobile view since Typescript errors
   // On props inside styled components
-  const mobileView = false; //window.innerWidth <= 768;
+  const mobileView = window.innerWidth <= 768;
 
   return (
     <div>
