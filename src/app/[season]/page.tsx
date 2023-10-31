@@ -1,6 +1,15 @@
 "use client";
 import React from "react";
+import styled from "styled-components";
 
+const StyledContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    max-width: min-content;
+  }
+`;
 export default function DefaultEpisodeDetailsPage() {
-  return <div>Pick an episode from the left</div>;
+  return <StyledContainer>Pick an episode from the left</StyledContainer>;
 }
