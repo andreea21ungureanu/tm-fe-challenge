@@ -6,12 +6,17 @@ export type ContentDetailsProps = Pick<
   "season" | "number" | "airdate" | "runtime" | "rating"
 >;
 
-const ContentDetailsContainer = styled.div`
+const ContentDetailsContainer = styled.ul`
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding-left: 20px;
+  list-style-type: none;
+`;
+
+const StyledListItem = styled.li`
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 export const ContentDetails = ({
@@ -22,13 +27,13 @@ export const ContentDetails = ({
   rating,
 }: ContentDetailsProps) => {
   return (
-    <ContentDetailsContainer>
-      <div>
+    <ContentDetailsContainer aria-label={"More details about episode list"}>
+      <StyledListItem>
         Season: {season}, Episode: {number}
-      </div>
-      <div>Airdate: {airdate}</div>
-      <div>Runtime: {runtime}</div>
-      <div>Rating: {rating.average}/10</div>
+      </StyledListItem>
+      <StyledListItem>Airdate: {airdate}</StyledListItem>
+      <StyledListItem>Runtime: {runtime}</StyledListItem>
+      <StyledListItem>Rating: {rating.average}/10</StyledListItem>
     </ContentDetailsContainer>
   );
 };

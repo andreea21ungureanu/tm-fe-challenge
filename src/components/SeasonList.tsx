@@ -31,9 +31,12 @@ export const SeasonList = () => {
   const seasons = Array.from({ length: seasonsCount }, (_, index) => index + 1);
 
   return (
-    <StyledSeasonList>
+    <StyledSeasonList aria-label="List of seasons">
       {seasons.map((seasonNumber) => (
-        <StyledListItem key={seasonNumber}>
+        <StyledListItem
+          key={seasonNumber}
+          aria-label={`Season ${seasonNumber}`}
+        >
           <Link href={`/${seasonNumber}`}>Season {seasonNumber}</Link>
         </StyledListItem>
       ))}
