@@ -1,3 +1,4 @@
+import { Episode } from "@/types/Episode";
 import episodes from "./episodes.json";
 
 // TODO: Handle undefined
