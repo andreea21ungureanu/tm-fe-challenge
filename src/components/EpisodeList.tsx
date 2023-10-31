@@ -2,6 +2,11 @@
 
 import React from "react";
 import styled from "styled-components";
+import { EpisodeTitleLink } from "./EpisodeTitleLink";
+
+export type EpisodeList = {
+  episodes: Episode[];
+};
 
 const StyledEpisodeList = styled.ol`
   margin: 0;
@@ -12,24 +17,17 @@ const StyledEpisodeList = styled.ol`
   padding-inline-start: 0;
 `;
 
-const EpisodeTitle = styled.li`
-  font-size: 18px;
-
-  margin-bottom: 16px;
-`;
-type EpisodeList = {
-  episodes: Episode[];
-};
 export const EpisodeList = ({ episodes = [] }: EpisodeList) => {
   return (
     <StyledEpisodeList>
       {episodes.map((ep) => (
-        <EpisodeTitle key={ep.id}>
-          <span>
-            S{ep.season}E{ep.number}:
-          </span>{" "}
-          {ep.name}
-        </EpisodeTitle>
+        <EpisodeTitleLink
+          key={ep.id}
+          id={ep.id}
+          season={ep.season}
+          episodeName={ep.name}
+          episodeNumber={ep.number}
+        />
       ))}
     </StyledEpisodeList>
   );

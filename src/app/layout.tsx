@@ -1,8 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import episodes from "./api/episodes.json";
-import { EpisodeList } from "./components/EpisodeList";
+import { EpisodeList } from "../components/EpisodeList";
+import { useGetAllEpisodes } from "../api/useGetAllEpisodes";
 
 const EpisodeListContainer = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export default function RootLayout({
         <div>
           <h1>Episode List: </h1>
           <EpisodeListContainer>
-            <EpisodeList episodes={episodes} />
+            <EpisodeList episodes={useGetAllEpisodes()} />
             {children}
           </EpisodeListContainer>
         </div>

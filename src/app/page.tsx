@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 
-import { EpisodeDetail } from "./components/EpisodeDetail";
-
-export default function App() {
-  return <EpisodeDetail />;
+export default function DefaultEpisodeDetailsPage() {
+  return <div>Pick an episode from the left</div>;
 }
