@@ -33,13 +33,14 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
 
   return (
     <EpisodeDetailContainer aria-label={"Episode details"} tabIndex={0}>
-      <h2>{name}</h2>
+      <h2 tabIndex={1}>{name}</h2>
       <ContentAndImageContainer>
         <Image
           alt={`Preview of Episode ${name}`}
           src={image.medium}
           width={200}
           height={125}
+          tabIndex={2}
         />
         <ContentDetails
           aria-label={"More details about the episode"}

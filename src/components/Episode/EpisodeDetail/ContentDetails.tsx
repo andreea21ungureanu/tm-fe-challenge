@@ -27,7 +27,10 @@ export const ContentDetails = ({
   rating,
 }: ContentDetailsProps) => {
   return (
-    <ContentDetailsContainer aria-label={"More details about episode list"}>
+    <ContentDetailsContainer
+      aria-label={"More details about episode list"}
+      tabIndex={4}
+    >
       <StyledListItem>
         Season: {season}, Episode: {number}
       </StyledListItem>
