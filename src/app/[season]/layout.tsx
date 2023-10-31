@@ -5,6 +5,7 @@ import { EpisodeList } from "@/components/Episode/EpisodeList";
 import { useGetEpisodesPerSeason } from "@/api/useGetEpisodesPerSeason";
 import { CloseButton } from "@/components/Buttons/CloseButton";
 import { useSelectedLayoutSegments } from "next/navigation";
+import { ErrorContainer } from "@/components/Error";
 
 const EpisodeListContainer = styled.div`
   display: flex;
@@ -33,16 +34,23 @@ export default function SeasonLayout({
   // On props inside styled components
   const mobileView = window.innerWidth <= 768;
 
-  return (
-    <>
-      <h1>Episode List: </h1>
-      <EpisodeListContainer>
-        {mobileView && currentSegment ? null : (
-          <EpisodeList seasonUrl={params.season} episodes={episodesPerSeason} />
-        )}
-        {children}
-        {currentSegment ? <CloseButton seasonUrl={params.season} /> : null}
-      </EpisodeListContainer>
-    </>
-  );
+  if (episodesPerSeason instanceof Error) {
+    return <ErrorContainer text="Episode not found or of invalid type" />;
+  } else {
+    return (
+      <>
+        <h1>Episode List: </h1>
+        <EpisodeListContainer>
+          {mobileView && currentSegment ? null : (
+            <EpisodeList
+              seasonUrl={params.season}
+              episodes={episodesPerSeason}
+            />
+          )}
+          {children}
+          {currentSegment ? <CloseButton seasonUrl={params.season} /> : null}
+        </EpisodeListContainer>
+      </>
+    );
+  }
 }

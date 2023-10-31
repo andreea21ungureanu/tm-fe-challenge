@@ -28,12 +28,10 @@ export const EpisodeTitleLink = ({
       <li
         aria-label={`Season ${season} Episode ${episodeNumber} ${episodeName} link`}
       >
-        <Link href={`/${seasonUrl}/${id}`}>
-          <span>
-            S{season}E{episodeNumber}:
-          </span>{" "}
-          {episodeName}
-        </Link>
+        <span>
+          S{season}E{episodeNumber}:
+        </span>{" "}
+        <Link href={`/${seasonUrl}/${id}`}>{episodeName}</Link>
       </li>
     </StyledList>
   );
