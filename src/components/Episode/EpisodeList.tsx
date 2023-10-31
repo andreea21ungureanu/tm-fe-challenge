@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import { EpisodeTitleLink } from "./EpisodeTitleLink";
+import { Episode } from "@/types/Episode";
 
 export type EpisodeList = {
   episodes: Episode[];

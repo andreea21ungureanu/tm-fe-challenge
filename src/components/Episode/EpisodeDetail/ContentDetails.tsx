@@ -1,3 +1,4 @@
+import { Episode } from "@/types/Episode";
 import styled from "styled-components";
 
 export type ContentDetailsProps = Pick<

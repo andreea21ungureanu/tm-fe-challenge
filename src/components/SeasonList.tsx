@@ -6,8 +6,9 @@ import styled from "styled-components";
 
 const StyledSeasonList = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-inline-start: 0;
+  list-style-type: none;
 
   @media (max-width: 768px) {
     display: flex;
@@ -17,7 +18,7 @@ const StyledSeasonList = styled.ul`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledListItem = styled.li`
   margin: 10px;
 
   @media (max-width: 768px) {
@@ -32,9 +33,9 @@ export const SeasonList = () => {
   return (
     <StyledSeasonList>
       {seasons.map((seasonNumber) => (
-        <StyledLink href={`/${seasonNumber}`} key={seasonNumber}>
-          Season {seasonNumber}
-        </StyledLink>
+        <StyledListItem key={seasonNumber}>
+          <Link href={`/${seasonNumber}`}>Season {seasonNumber}</Link>
+        </StyledListItem>
       ))}
     </StyledSeasonList>
   );

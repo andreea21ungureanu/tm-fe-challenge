@@ -5,6 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { ContentDetails } from "./ContentDetails";
+import { Episode } from "@/types/Episode";
 
 export type EpisodeDetailProps = {
   episodeId: string;
