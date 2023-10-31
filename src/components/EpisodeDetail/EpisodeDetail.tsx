@@ -30,8 +30,6 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
   const { name, image, summary, season, number, airdate, runtime, rating } =
     useGetEpisode(Number(episodeId)) as Episode;
 
-  console.log(image.medium);
-
   return (
     <EpisodeDetailContainer>
       <div>{name}</div>
