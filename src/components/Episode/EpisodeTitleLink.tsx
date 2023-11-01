@@ -1,14 +1,16 @@
 "use client";
 
+import { Episode } from "@/types/Episode";
 import Link from "next/link";
 import styled from "styled-components";
 
-export type EpisodeTitleLinkProps = {
-  id: number;
+export type PartialEpisodeProps = Pick<
+  Episode,
+  "id" | "season" | "number" | "name"
+>;
+
+export type EpisodeTitleLinkProps = PartialEpisodeProps & {
   seasonUrl: string;
-  season: number;
-  episodeName: string;
-  episodeNumber: number;
 };
 
 const StyledList = styled.li`
@@ -16,23 +18,29 @@ const StyledList = styled.li`
   margin-bottom: 16px;
 `;
 
+const StyledLink = styled(Link)`
+  color: black;
+
+  &:hover,
+  &:active {
+    color: purple;
+    background: #e3e2e2;
+  }
+`;
+
 export const EpisodeTitleLink = ({
   id,
   season,
   seasonUrl,
-  episodeName,
-  episodeNumber,
+  name,
+  number,
 }: EpisodeTitleLinkProps) => {
   return (
-    <StyledList>
-      <li
-        aria-label={`Season ${season} Episode ${episodeNumber} ${episodeName} link`}
-      >
-        <span>
-          S{season}E{episodeNumber}:
-        </span>{" "}
-        <Link href={`/${seasonUrl}/${id}`}>{episodeName}</Link>
-      </li>
+    <StyledList aria-label={`Season ${season} Episode ${number} ${name} link`}>
+      <span>
+        S{season}E{number}:
+      </span>{" "}
+      <StyledLink href={`/${seasonUrl}/${id}`}>{name}</StyledLink>
     </StyledList>
   );
 };
