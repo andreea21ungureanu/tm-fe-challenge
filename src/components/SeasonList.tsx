@@ -26,6 +26,16 @@ const StyledListItem = styled.li`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: black;
+
+  &:hover,
+  &:active {
+    color: purple;
+    background: #e3e2e2;
+  }
+`;
+
 export const SeasonList = () => {
   const seasonsCount = useGetSeasonsCount();
   const seasons = Array.from({ length: seasonsCount }, (_, index) => index + 1);
@@ -37,7 +47,9 @@ export const SeasonList = () => {
           key={seasonNumber}
           aria-label={`Season ${seasonNumber}`}
         >
-          <Link href={`/${seasonNumber}`}>Season {seasonNumber}</Link>
+          <StyledLink href={`/${seasonNumber}`}>
+            Season {seasonNumber}
+          </StyledLink>
         </StyledListItem>
       ))}
     </StyledSeasonList>

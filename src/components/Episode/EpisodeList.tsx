@@ -28,8 +28,8 @@ export const EpisodeList = ({ episodes = [], seasonUrl }: EpisodeList) => {
           id={ep.id}
           season={ep.season}
           seasonUrl={seasonUrl}
-          episodeName={ep.name}
-          episodeNumber={ep.number}
+          name={ep.name}
+          number={ep.number}
         />
       ))}
     </StyledEpisodeList>
