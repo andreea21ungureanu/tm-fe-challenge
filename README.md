@@ -6,31 +6,30 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. On the initial load, select one the seasons related to the Game of Thrones series
+2. Inside a season, you can select any of the episodes to find out more details about this
+3. Use the close button to return to the initial Episodes list view
 
-## Learn More
+### Small screens
 
-To learn more about Next.js, take a look at the following resources:
+On small devices, when the details regarding an episode are selected, the list of episodes for that season will be closed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accessibility
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The application is labeled and is using semantic tags.
+- Keyboard navigation can be used in order to acess episodes and their details
 
-## Deploy on Vercel
+## Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+There is unit test coverage using react testing library for:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Custom hooks
+- React components
+
+NOTE: The test coverage is not complete and should only serve as examples.
