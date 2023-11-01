@@ -27,6 +27,12 @@ On small devices, when the details regarding an episode are selected, the list o
 
 ## Testing
 
+To run the tests, use the command:
+
+```bash
+npm test
+```
+
 There is unit test coverage using react testing library for:
 
 - Custom hooks
