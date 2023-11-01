@@ -17,7 +17,7 @@ const EpisodeDetailContainer = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const ContentAndImageContainer = styled.div`
