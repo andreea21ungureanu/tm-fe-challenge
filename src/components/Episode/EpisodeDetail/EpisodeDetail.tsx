@@ -57,7 +57,6 @@ export const EpisodeDetail = ({ episodeId }: EpisodeDetailProps) => {
             rating={rating}
           />
         </ContentAndImageContainer>
-        {/** Clean HTML from text? */}
         <div
           dangerouslySetInnerHTML={{ __html: summary }}
           aria-label="Episode summary"
