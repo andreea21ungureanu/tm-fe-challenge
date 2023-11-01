@@ -5,7 +5,7 @@ import { EpisodeDetail } from "../../../components/Episode/EpisodeDetail/Episode
 export default function EpisodeDetailPage({
   params,
 }: {
-  params: { episode: string; season: string };
+  params: { episode: string };
 }) {
   return <EpisodeDetail episodeId={params.episode} />;
 }

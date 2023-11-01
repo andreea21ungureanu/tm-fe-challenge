@@ -1,6 +1,9 @@
-"use client";
-
 import { SeasonList } from "@/components/SeasonList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Game of Thrones Series Summary",
+};
 
 export default function RootLayout({
   children,
